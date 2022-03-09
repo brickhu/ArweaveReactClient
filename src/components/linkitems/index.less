@@ -1,0 +1,36 @@
+@import './../../theme/light.less';
+
+.linkitem {
+  background-color: @color-white;
+  border-radius: 4px;
+  box-shadow: @shadow-100;
+  text-align: left;
+  display: flex;
+  padding: 0.2em 0.5em;
+  margin: 0.5em;
+  justify-items: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  .li-icon {
+    margin-right: 0.5em;
+  }
+}
+
+.linkitem:hover {
+  background-color: @color-primary;
+  color: @color-white;
+}
+
+.link-group{
+  background-color: @color-gray-20;
+  padding: @spacing-base;
+  border-radius: @spacing-base*2;
+  text-align: left;
+  h2{
+    font-size: @font-heading-sm;
+  }
+  .link-group-warps{
+    display: flex;
+    flex-direction: row;
+  }
+}

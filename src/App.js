@@ -1,24 +1,29 @@
-import React from 'react';
-import './App.css';
+import './App.less';
+// import { Button } from 'antd';
+import {BrowserRouter, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
+import {AppHeader,Sidebar} from './components/app-header';
+import Home from './pages/home';
+import { Linkitem,LinkGroup } from './components/linkitems';
+import { useMediaQuery } from 'react-responsive'
+
+
 
 function App() {
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1024px)' })
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isBigScreen ? "desktop-layout App" : "mobile-layout App"}>
+      {isBigScreen ? <Sidebar /> : <AppHeader />}
+      <div className="app-body">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
