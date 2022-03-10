@@ -1,13 +1,18 @@
 import React from 'react';
-import './index.less';
-import { Tooltip } from 'antd';
+import styles from './index.module.scss';
+import SvgExternalLinkOutline from '../icons/ExternalLinkOutline';
+import SvgPlusOutline from '../icons/PlusOutline';
+import SvgMinusOutline from '../icons/MinusOutline';
 
 
 function LinkGroup(props) {
   return (
-    <div className="link-group">
-      <h2>{props.title}</h2>
-      <div className="link-group-warps">
+    <div className={styles.link_group}>
+      <div className={styles.link_group_title}>
+        <SvgMinusOutline className={styles.link_group_title_icon} />
+        <h2 className={styles.link_group_title_icon}>{props.title}</h2>
+      </div>
+      <div className={styles.link_group_warps}>
         {props.children}
       </div>
     </div>
@@ -25,14 +30,24 @@ class Linkitem extends React.Component {
   }
 
   render() {
+    const {index,id,name,url,highline,desc} = this.props;
+    const pureurl = url.replace(/^https?:\/\//,'');
+    const favicon = `http://www.google.com/s2/favicons?domain=` + url || `https://statics.dnspod.cn/proxy_favicon/_/favicon?domain=` + url
     return (
-      <Tooltip title={this.props.desc}>
-        <div onClick={this.handleClick} data-id={this.props.id} className='linkitem'>
-          <img className="li-icon" src={`http://www.google.com/s2/favicons?domain=`+this.props.url || `https://statics.dnspod.cn/proxy_favicon/_/favicon?domain=`+this.props.url} alt="" width="24px" height="24px" />
-          <span className="li-name">{this.props.name}</span>
-          <span className="li-highline">{this.props.heighline||''}</span>
+      <a onClick={this.handleClick} data-id={id} className={styles.linkitem}>
+        <div className={styles.linkitem_left}>
+          <span className={styles.li_index}>{index}</span>
+          <img className={styles.li_icon} src={favicon} alt={name} />
+          <span className={styles.li_name}>{name} </span>
+          <i className={styles.li_dot}></i>
+          <span className={styles.li_desc}>{desc}</span>
+          <span className={styles.li_url}>{pureurl}</span>
         </div>
-      </Tooltip>
+        <div className={styles.linkitem_right}>
+          <span className={styles.li_label}>{highline || ''}</span>
+          <SvgExternalLinkOutline width="16" height="16"/>
+        </div>
+      </a>
     )
   }
 }

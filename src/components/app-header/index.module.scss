@@ -1,0 +1,36 @@
+@import './../../theme/light';
+
+.app_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app_sidebar{
+  color: $color-surface;
+  background-color: $color-overlay;
+  height: 100%;
+  width: 18vw;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .app_logo{
+    .app_logo_pattern{
+      fill: $color-surface;
+      width: 64px;
+      height: 64px;
+    }
+    margin: 3vw;
+    display: block;
+  }
+  .app_logo:hover{
+    .app_logo_pattern{
+      fill: $color-primary;
+      width: 64px;
+      height: 64px;
+    }
+  }
+}
+
