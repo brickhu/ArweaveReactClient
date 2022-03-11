@@ -91,6 +91,10 @@
       height: $spacing-base*3;
       padding: 0 0.4em 0 0em;
     }
+    .link_group_title_icon:hover{
+      fill: $color-primary;
+      cursor: pointer;
+    }
     h2{
       font-size: $font-heading-md;
       line-height: $spacing-base*3;
@@ -98,19 +102,7 @@
       margin: 0;
     }
   }
-  // h2{
-  //   font-size: $font-heading-md;
-  //   margin: 0 0 1.5em 0.2em;
-  // }
-  // h2:before {
-  //   content: "";
-  //   width: 12px;
-  //   height: 2px;
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   margin: 0 0.5em 0 1px;
-  //   background-color: #181a1d;
-  // }
+  
   .link_group_warps{
     display: flex;
     flex-direction: column;

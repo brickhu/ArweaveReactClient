@@ -5,7 +5,7 @@ import SvgPlusOutline from '../icons/PlusOutline';
 import SvgMinusOutline from '../icons/MinusOutline';
 
 
-function LinkGroup(props) {
+function LinkWarpper(props) {
   return (
     <div className={styles.link_group}>
       <div className={styles.link_group_title}>
@@ -18,6 +18,7 @@ function LinkGroup(props) {
     </div>
   )
 }
+
 
 class Linkitem extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Linkitem extends React.Component {
     return (
       <a onClick={this.handleClick} data-id={id} className={styles.linkitem}>
         <div className={styles.linkitem_left}>
-          <span className={styles.li_index}>{index}</span>
+          <span className={styles.li_index}>{index+1}</span>
           <img className={styles.li_icon} src={favicon} alt={name} />
           <span className={styles.li_name}>{name} </span>
           <i className={styles.li_dot}></i>
@@ -52,6 +53,38 @@ class Linkitem extends React.Component {
   }
 }
 
+class LinkSection extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleClickTitle = this.handleClickTitle.bind(this);
+  }
+
+  handleClickTitle(){
+    alert(`click title`);
+  }
+
+  render(){
+    const {title,links} = this.props;
+    return (
+      <div className={styles.link_group}>
+        <div className={styles.link_group_title} >
+          <SvgMinusOutline onClick={this.handleClickTitle} className={styles.link_group_title_icon}/>
+          <h2 className={styles.link_group_title_icon}>{title}</h2>
+        </div>
+        <div className={styles.link_group_warps}>
+          {links.map((item, index) => {
+            return <Linkitem index={index} key={index} {...item} />
+          })}
+        </div>
+      </div>
+      // <LinkWarpper title={title}>
+      //   {links.map((item,index) => {
+      //     return <Linkitem index={index} key={index} {...item} />
+      //   })}
+      // </LinkWarpper>
+    )
+  }
+}
 
 
-export { Linkitem , LinkGroup };
+export { Linkitem , LinkWarpper, LinkSection };

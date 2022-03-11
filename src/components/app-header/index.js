@@ -2,19 +2,26 @@ import React from 'react';
 // import { useMediaQuery } from 'react-responsive'
 import styles from './index.module.scss';
 import SvgLogo from '../icons/Logo';
+import LangSwitcher from '../lang-switcher';
 
 const Menudata = [
   {
-    name:"Home",
+    name:"Free Porn Tube",
   },
   {
-    name:"About",
+    name:"Live Sex Cam",
+  },
+  {
+    name:"Only Fans Lake",
+  },
+  {
+    name:"Hentai Porn",
   }
 ]
 
 function Menulist(props) {
   const list = props.items.map((item) => 
-    <li>{item.name}</li>
+    <li className={styles.app_menuitem}>{item.name}</li>
   );
   return (
     <ul className={styles.app_menulist}>
@@ -41,7 +48,9 @@ function Sidebar(props) {
         <SvgLogo className={styles.app_logo_pattern}/>
       </a>
       <Menulist items={Menudata}/>
-      <div>english</div>
+      <div className={styles.app_lang}>
+        <LangSwitcher />
+      </div>
     </div>
   );
 }

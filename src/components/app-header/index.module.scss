@@ -32,5 +32,27 @@
       height: 64px;
     }
   }
+  .app_menulist{
+    flex:1;
+    list-style: none;
+    text-indent: 0;
+    padding: 0;
+    margin: 0;
+    color: $color-surface * 0.6;
+    .app_menuitem{
+      text-indent: 0;
+      padding: 0.5em;
+      margin: 0;
+    }
+    .app_menuitem:hover{
+      color:$color-primary;
+      cursor: pointer;
+      color: $color-surface ;
+    }
+  }
+  .app_lang{
+    padding-bottom: $spacing-base * 6;
+  }
 }
+
 
